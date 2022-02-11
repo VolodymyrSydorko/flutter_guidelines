@@ -1,11 +1,13 @@
 import 'package:flutter_guidelines/screens/authentication/models/index.dart';
+import 'package:injectable/injectable.dart';
 
 import '../http_client.dart';
 
+@injectable
 class UserRepository {
-  UserRepository({required HttpClient httpClient}) : _httpClient = httpClient;
+  UserRepository({required this.httpClient});
 
-  final HttpClient _httpClient;
+  final HttpClient httpClient;
 
   Future<AuthResponse> signInWithEmailAndPassword(
       String email, String password) {

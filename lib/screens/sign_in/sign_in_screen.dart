@@ -5,8 +5,7 @@ import 'package:flutter_guidelines/gen/index.dart';
 import 'package:flutter_guidelines/generated/index.dart';
 import 'package:flutter_guidelines/screens/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter_guidelines/screens/sign_in/bloc/sign_in_bloc.dart';
-import 'package:flutter_guidelines/services/http/repositories/index.dart';
-import 'package:flutter_guidelines/services/index.dart';
+import 'package:flutter_guidelines/services/injector/injector.dart';
 import 'package:flutter_guidelines/widgets/index.dart';
 import 'package:formz/formz.dart';
 
@@ -18,8 +17,7 @@ class SignInScreen extends StatefulWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          SignInBloc(userRepository: getIt.get<UserRepository>()),
+      create: (context) => getIt<SignInBloc>(),
       child: this,
     );
   }

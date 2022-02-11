@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_guidelines/app.dart';
 import 'package:flutter_guidelines/generated/codegen_loader.g.dart';
 import 'package:flutter_guidelines/services/index.dart';
+import 'package:flutter_guidelines/services/injector/injector.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setupLocator();
+  configureDependencies();
   await EasyLocalization.ensureInitialized();
 
   runApp(
