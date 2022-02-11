@@ -1,0 +1,6 @@
+{
+    "login" : { "buttonText": "Anmeldung" },
+    "resetPassword" : "Passwort zurücksetzen",
+    "email" : "E-Mail",
+    "password" : "Passwort"
+}
