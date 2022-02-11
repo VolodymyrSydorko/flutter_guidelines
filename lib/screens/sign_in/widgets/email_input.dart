@@ -25,7 +25,7 @@ class EmailInput extends StatelessWidget {
           focusNode: emailFocusNode,
           enabled: state.status != FormzStatus.submissionInProgress,
           decoration: InputDecoration(
-            labelText: LocaleKeys.email.tr(),
+            labelText: LocaleKeys.loginEmail.tr(),
             border: const OutlineInputBorder(),
             fillColor: Colors.blue,
             errorText: state.email.invalid

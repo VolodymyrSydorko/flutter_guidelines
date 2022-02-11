@@ -15,28 +15,124 @@ class CodegenLoader extends AssetLoader{
   }
 
   static const Map<String,dynamic> uk_UA = {
+  "hello": "Hello",
+  "helloMessage": "Hello {}!",
+  "infoMessageNamed": "{} are written in the {lang} language",
+  "clickMe": "Click me",
   "login": {
-    "buttonText": "Логін"
+    "buttonLabel": "Login",
+    "email": "Email",
+    "password": "Password",
+    "resetPassword": {
+      "buttonLabel": "Reset Password",
+      "email": "@:login.email",
+      "password": "@:login.password"
+    }
   },
-  "resetPassword": "Відновити пароль",
-  "email": "Eлектронна пошта",
-  "password": "Пароль"
+  "clicked": {
+    "zero": "You clicked {} times!",
+    "one": "You clicked {} time!",
+    "two": "You clicked {} times!",
+    "few": "You clicked {} times!",
+    "many": "You clicked {} times!",
+    "other": "You clicked {} times!"
+  },
+  "amount": {
+    "zero": "Your amount : {} ",
+    "one": "Your amount : {} ",
+    "two": "Your amount : {} ",
+    "few": "Your amount : {} ",
+    "many": "Your amount : {} ",
+    "other": "Your amount : {} "
+  },
+  "gender": {
+    "male": "Hi man ;) ",
+    "female": "Hello girl :)",
+    "withArg": {
+      "male": "Hi man ;) {}",
+      "female": "Hello girl :) {}"
+    }
+  }
 };
 static const Map<String,dynamic> de_DE = {
+  "hello": "Hello",
+  "helloMessage": "Hello {}!",
+  "infoMessageNamed": "{} are written in the {lang} language",
+  "clickMe": "Click me",
   "login": {
-    "buttonText": "Anmeldung"
+    "buttonLabel": "Login",
+    "email": "Email",
+    "password": "Password",
+    "resetPassword": {
+      "buttonLabel": "Reset Password",
+      "email": "@:login.email",
+      "password": "@:login.password"
+    }
   },
-  "resetPassword": "Passwort zurücksetzen",
-  "email": "E-Mail",
-  "password": "Passwort"
+  "clicked": {
+    "zero": "You clicked {} times!",
+    "one": "You clicked {} time!",
+    "two": "You clicked {} times!",
+    "few": "You clicked {} times!",
+    "many": "You clicked {} times!",
+    "other": "You clicked {} times!"
+  },
+  "amount": {
+    "zero": "Your amount : {} ",
+    "one": "Your amount : {} ",
+    "two": "Your amount : {} ",
+    "few": "Your amount : {} ",
+    "many": "Your amount : {} ",
+    "other": "Your amount : {} "
+  },
+  "gender": {
+    "male": "Hi man ;) ",
+    "female": "Hello girl :)",
+    "withArg": {
+      "male": "Hi man ;) {}",
+      "female": "Hello girl :) {}"
+    }
+  }
 };
 static const Map<String,dynamic> en_US = {
+  "hello": "Hello",
+  "helloMessage": "Hello {}!",
+  "infoMessageNamed": "{} are written in the {lang} language",
+  "clickMe": "Click me",
   "login": {
-    "buttonText": "Login"
+    "buttonLabel": "Login",
+    "email": "Email",
+    "password": "Password",
+    "resetPassword": {
+      "buttonLabel": "Reset Password",
+      "email": "@:login.email",
+      "password": "@:login.password"
+    }
   },
-  "resetPassword": "Reset password",
-  "email": "Email",
-  "password": "Password"
+  "clicked": {
+    "zero": "You clicked {} times!",
+    "one": "You clicked {} time!",
+    "two": "You clicked {} times!",
+    "few": "You clicked {} times!",
+    "many": "You clicked {} times!",
+    "other": "You clicked {} times!"
+  },
+  "amount": {
+    "zero": "Your amount : {} ",
+    "one": "Your amount : {} ",
+    "two": "Your amount : {} ",
+    "few": "Your amount : {} ",
+    "many": "Your amount : {} ",
+    "other": "Your amount : {} "
+  },
+  "gender": {
+    "male": "Hi man ;) ",
+    "female": "Hello girl :)",
+    "withArg": {
+      "male": "Hi man ;) {}",
+      "female": "Hello girl :) {}"
+    }
+  }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"uk_UA": uk_UA, "de_DE": de_DE, "en_US": en_US};
 }

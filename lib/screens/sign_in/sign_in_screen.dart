@@ -111,7 +111,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         alignment: Alignment.topRight,
                         padding: const EdgeInsets.only(right: 10),
                         child: Text(
-                          LocaleKeys.resetPassword.tr(),
+                          LocaleKeys.loginResetPasswordButtonLabel.tr(),
                           style: const TextStyle(color: Colors.blue),
                         ),
                       ),

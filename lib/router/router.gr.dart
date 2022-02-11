@@ -37,9 +37,29 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.AdaptivePage<dynamic>(
           routeData: routeData, child: const _i1.SignInScreen());
     },
+    HomeRouter.name: (routeData) {
+      return _i2.AdaptivePage<dynamic>(
+          routeData: routeData, child: const _i2.EmptyRouterPage());
+    },
     HomeRoute.name: (routeData) {
       return _i2.AdaptivePage<dynamic>(
           routeData: routeData, child: const _i1.HomeScreen());
+    },
+    DashboardRoute.name: (routeData) {
+      return _i2.AdaptivePage<dynamic>(
+          routeData: routeData, child: const _i1.DashboardScreen());
+    },
+    TasksRoute.name: (routeData) {
+      return _i2.AdaptivePage<dynamic>(
+          routeData: routeData, child: const _i1.TasksScreen());
+    },
+    ConfigRoute.name: (routeData) {
+      return _i2.AdaptivePage<dynamic>(
+          routeData: routeData, child: const _i1.ConfigScreen());
+    },
+    ProfileRoute.name: (routeData) {
+      return _i2.AdaptivePage<dynamic>(
+          routeData: routeData, child: const _i1.ProfileScreen());
     }
   };
 
@@ -49,8 +69,24 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(AuthenticationRouter.name, path: '/auth', children: [
           _i2.RouteConfig(SignInRoute.name,
               path: 'sign-in', parent: AuthenticationRouter.name),
-          _i2.RouteConfig(HomeRoute.name,
-              path: 'home', parent: AuthenticationRouter.name)
+          _i2.RouteConfig(HomeRouter.name,
+              path: 'home',
+              parent: AuthenticationRouter.name,
+              children: [
+                _i2.RouteConfig(HomeRoute.name,
+                    path: '',
+                    parent: HomeRouter.name,
+                    children: [
+                      _i2.RouteConfig(DashboardRoute.name,
+                          path: 'dashboard', parent: HomeRoute.name),
+                      _i2.RouteConfig(TasksRoute.name,
+                          path: 'tasks', parent: HomeRoute.name),
+                      _i2.RouteConfig(ConfigRoute.name,
+                          path: 'config', parent: HomeRoute.name),
+                      _i2.RouteConfig(ProfileRoute.name,
+                          path: 'profile', parent: HomeRoute.name)
+                    ])
+              ])
         ]),
         _i2.RouteConfig('*#redirect',
             path: '*', redirectTo: '/', fullMatch: true)
@@ -84,9 +120,51 @@ class SignInRoute extends _i2.PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [_i2.EmptyRouterPage]
+class HomeRouter extends _i2.PageRouteInfo<void> {
+  const HomeRouter({List<_i2.PageRouteInfo>? children})
+      : super(HomeRouter.name, path: 'home', initialChildren: children);
+
+  static const String name = 'HomeRouter';
+}
+
+/// generated route for
 /// [_i1.HomeScreen]
 class HomeRoute extends _i2.PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: 'home');
+  const HomeRoute({List<_i2.PageRouteInfo>? children})
+      : super(HomeRoute.name, path: '', initialChildren: children);
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [_i1.DashboardScreen]
+class DashboardRoute extends _i2.PageRouteInfo<void> {
+  const DashboardRoute() : super(DashboardRoute.name, path: 'dashboard');
+
+  static const String name = 'DashboardRoute';
+}
+
+/// generated route for
+/// [_i1.TasksScreen]
+class TasksRoute extends _i2.PageRouteInfo<void> {
+  const TasksRoute() : super(TasksRoute.name, path: 'tasks');
+
+  static const String name = 'TasksRoute';
+}
+
+/// generated route for
+/// [_i1.ConfigScreen]
+class ConfigRoute extends _i2.PageRouteInfo<void> {
+  const ConfigRoute() : super(ConfigRoute.name, path: 'config');
+
+  static const String name = 'ConfigRoute';
+}
+
+/// generated route for
+/// [_i1.ProfileScreen]
+class ProfileRoute extends _i2.PageRouteInfo<void> {
+  const ProfileRoute() : super(ProfileRoute.name, path: 'profile');
+
+  static const String name = 'ProfileRoute';
 }

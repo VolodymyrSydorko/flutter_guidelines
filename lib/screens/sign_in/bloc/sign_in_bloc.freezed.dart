@@ -797,8 +797,8 @@ class _$SignInStateTearOff {
   const _$SignInStateTearOff();
 
   _SignInState call(
-      {Email email = const Email.pure(''),
-      Password password = const Password.pure(''),
+      {Email email = const Email.pure('test@test.test'),
+      Password password = const Password.pure('testtest'),
       FormzStatus status = FormzStatus.pure,
       UserProfile? userProfile,
       String? errorMessage}) {
@@ -944,8 +944,8 @@ class __$SignInStateCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
 
 class _$_SignInState implements _SignInState {
   const _$_SignInState(
-      {this.email = const Email.pure(''),
-      this.password = const Password.pure(''),
+      {this.email = const Email.pure('test@test.test'),
+      this.password = const Password.pure('testtest'),
       this.status = FormzStatus.pure,
       this.userProfile,
       this.errorMessage});

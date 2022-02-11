@@ -23,7 +23,7 @@ class PasswordInput extends StatelessWidget {
           obscureText: true,
           focusNode: passwordFocusNode,
           decoration: InputDecoration(
-            labelText: LocaleKeys.password.tr(),
+            labelText: LocaleKeys.loginPassword.tr(),
             suffixIcon: const Icon(Icons.remove_red_eye_outlined),
             border: const OutlineInputBorder(),
             fillColor: Colors.blue,

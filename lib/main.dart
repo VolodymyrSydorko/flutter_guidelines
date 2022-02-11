@@ -18,7 +18,7 @@ Future main() async {
         Locale('de', 'DE'),
         Locale('uk', 'UA'),
       ],
-      path: 'assets/translations',
+      path: 'resources/langs',
       fallbackLocale: const Locale('en', 'US'),
       assetLoader: const CodegenLoader(),
     ),

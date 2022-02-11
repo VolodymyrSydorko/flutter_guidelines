@@ -20,7 +20,7 @@ class SignInSubmitButton extends StatelessWidget {
             if (state.status == FormzStatus.submissionInProgress) {
               return const CircularProgressIndicator(color: ColorName.white);
             } else {
-              return Text(LocaleKeys.login_buttonText.tr());
+              return Text(LocaleKeys.loginButtonLabel.tr());
             }
           },
         ),
