@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_guidelines/gen/index.dart';
 import 'package:flutter_guidelines/generated/index.dart';
 import 'package:flutter_guidelines/screens/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter_guidelines/screens/sign_in/bloc/sign_in_bloc.dart';
+import 'package:flutter_guidelines/screens/sign_in/widgets/text_url_launcher.dart';
 import 'package:flutter_guidelines/services/http/repositories/index.dart';
 import 'package:flutter_guidelines/services/index.dart';
 import 'package:flutter_guidelines/widgets/index.dart';
@@ -31,10 +31,48 @@ class SignInScreen extends StatefulWidget implements AutoRouteWrapper {
 class _SignInScreenState extends State<SignInScreen> {
   final _emailFocusNode = FocusNode();
   final _passwordFocusNode = FocusNode();
+  final _scrollContoroller = ScrollController();
+  final _firstImage = Image.network(
+      'https://www.mmda.mb.ca/wp-content/uploads/2019/04/DP-Logo-2-1024x379.png');
+  final _secondImage = Image.network(
+      'https://applotusunstablebackend.azurewebsites.net/img/cada.feabdd54.png');
+  final String _url = 'https://www.dealerpilothr.com/copy-of-privacy-policy';
+
+  void _animateToLoginButton() async {
+    await Future.delayed(const Duration(milliseconds: 300));
+    _scrollContoroller.animateTo(
+      100,
+      curve: Curves.easeOut,
+      duration: const Duration(milliseconds: 200),
+    );
+  }
+
+  @override
+  void initState() {
+    _emailFocusNode.addListener(() async {
+      if (_emailFocusNode.hasFocus) {
+        _animateToLoginButton();
+      }
+    });
+    _passwordFocusNode.addListener(() async {
+      if (_passwordFocusNode.hasFocus) {
+        _animateToLoginButton();
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _emailFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final _screenSize = MediaQuery.of(context).size;
+    final _mainContainerWidth = _screenSize.width * 0.8;
 
     return Scaffold(
       body: BlocListener<SignInBloc, SignInState>(
@@ -50,98 +88,134 @@ class _SignInScreenState extends State<SignInScreen> {
               state.errorMessage != null) {
             showErrorSnackBar(context, state.errorMessage!);
           } else if (state.status == FormzStatus.submissionCanceled) {
-            showErrorSnackBar(context, 'Pleae enter valid email and password');
+            showErrorSnackBar(context, 'Please enter valid email and password');
           }
         },
         child: SingleChildScrollView(
-          reverse: true,
+          controller: _scrollContoroller,
           child: Container(
             height: _screenSize.height,
             color: Colors.lightBlue,
             child: Center(
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(12.0),
-                  ),
-                ),
-                height: _screenSize.height * 0.7,
-                width: _screenSize.width * 0.8,
-                child: Column(
-                  children: [
-                    Container(
-                      height: _screenSize.height * 0.09,
-                      width: _screenSize.width * 0.8,
-                      padding: const EdgeInsets.all(20.0),
-                      child: FittedImage(image: Assets.images.logo.image()),
-                    ),
-                    SizedBox(
-                      height: _screenSize.height * 0.15,
-                    ),
-                    Container(
-                      height: _screenSize.height * 0.09,
-                      width: _screenSize.width * 0.8,
-                      padding: const EdgeInsets.all(10),
-                      child: EmailInput(
-                          emailFocusNode: _emailFocusNode,
-                          passwordFocusNode: _passwordFocusNode),
-                    ),
-                    Container(
-                      height: _screenSize.height * 0.09,
-                      width: _screenSize.width * 0.8,
-                      padding: const EdgeInsets.all(10),
-                      child: PasswordInput(
-                        passwordFocusNode: _passwordFocusNode,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(12.0),
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(
-                        top: 10,
-                        left: 10,
-                        right: 10,
-                        bottom: 5,
-                      ),
-                      width: _screenSize.width * 0.8,
-                      height: _screenSize.height * 0.09,
-                      child: const SignInSubmitButton(),
-                    ),
-                    GestureDetector(
-                      child: Container(
-                        alignment: Alignment.topRight,
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Text(
-                          LocaleKeys.resetPassword.tr(),
-                          style: const TextStyle(color: Colors.blue),
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: _screenSize.height * 0.1,
-                            width: _screenSize.width * 0.35,
-                            padding: const EdgeInsets.all(10.0),
-                            child: FittedImage(
-                                image: Assets.images.logoShort.image()),
+                    height: 500,
+                    width: _mainContainerWidth,
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.symmetric(vertical: 10),
+                          child: Image.network(
+                            'https://applotusunstablebackend.azurewebsites.net/img/logo.bfad0c66.png',
+                            scale: 2.4,
                           ),
-                          const Spacer(),
-                          Container(
-                            height: _screenSize.height * 0.1,
-                            width: _screenSize.width * 0.35,
-                            padding: const EdgeInsets.all(10.0),
-                            child: FittedBox(
-                                fit: BoxFit.fill,
-                                child: Assets.images.logoShort.image()),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                        ),
+                        Column(
+                          children: [
+                            EmailInput(
+                                emailFocusNode: _emailFocusNode,
+                                text: LocaleKeys.email.tr(),
+                                passwordFocusNode: _passwordFocusNode),
+                            PasswordInput(
+                              passwordFocusNode: _passwordFocusNode,
+                              text: LocaleKeys.password.tr(),
+                            ),
+                            Container(
+                              margin: const EdgeInsets.only(
+                                top: 20,
+                                bottom: 10,
+                              ),
+                              height: 40,
+                              child:const SignInSubmitButton(),
+                              
+                            ),
+                            GestureDetector(
+                              child: Container(
+                                alignment: Alignment.topRight,
+                                padding: const EdgeInsets.only(right: 10),
+                                child: Text(
+                                  LocaleKeys.resetPassword.tr(),
+                                  style: const TextStyle(color: Colors.blue),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(10),
+                                  child: _firstImage,
+                                ),
+                                flex: 1),
+                            Expanded(
+                                child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: _secondImage),
+                                flex: 1),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: _mainContainerWidth,
+                    margin: const EdgeInsets.only(top: 10),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: TextUrlLauncher(
+                            text: 'Privacy Policy',
+                            url: _url,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                          child: VerticalDivider(
+                            thickness: 1.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: TextUrlLauncher(
+                            text: 'Access Policy',
+                            url: _url,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                          child: VerticalDivider(
+                            thickness: 1.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: TextUrlLauncher(
+                            text: 'Terms Of Use',
+                            url: _url,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
