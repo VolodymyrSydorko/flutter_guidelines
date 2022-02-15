@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_guidelines/generated/index.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:formz/formz.dart';
 import '../bloc/sign_in_bloc.dart';
@@ -36,9 +35,8 @@ class PasswordInput extends StatelessWidget {
                   bottom: 5,
                 ),
               ),
-              SizedBox(
-                height: 40,
-                child: TextFormField(
+              
+                TextFormField(
                   style: const TextStyle(
                     fontSize: 16,
                     height: 1.0,
@@ -52,10 +50,10 @@ class PasswordInput extends StatelessWidget {
                     labelText: text,
                     floatingLabelBehavior: FloatingLabelBehavior.never,
                     labelStyle: const TextStyle(fontSize: 12),
-                    suffixIcon: const Icon(FontAwesomeIcons.eye, size: 16),
-                    border:  const OutlineInputBorder(),
-                    fillColor: Colors.blue,
-                    errorText: state.email.invalid
+                    suffixIcon: const Icon(FontAwesomeIcons.eye, size: 16,color:Colors.black,),
+                    border: const OutlineInputBorder(),
+
+                    errorText: state.password.invalid
                         ? state.password.error == PasswordValidationError.small
                             ? 'Password length must be at least 8 characters'
                             : state.password.error ==
@@ -77,7 +75,28 @@ class PasswordInput extends StatelessWidget {
                         : null;
                   },
                 ),
-              ),
+              
+              // state.password.invalid
+              //     ? state.password.error == PasswordValidationError.small
+              //         ? Container(
+              //             alignment: Alignment.topLeft,
+              //             padding: const EdgeInsets.only(top: 5),
+              //             child: const Text(
+              //               'Password length must be at least 8 characters',
+              //               style: TextStyle(color: Colors.red),
+              //             ),
+              //           )
+              //         : state.password.error == PasswordValidationError.empty
+              //             ? Container(
+              //                 alignment: Alignment.topLeft,
+              //                 padding: const EdgeInsets.only(top: 5),
+              //                 child: const Text(
+              //                   'Password is required',
+              //                   style: TextStyle(color: Colors.red),
+              //                 ),
+              //               )
+              //             : const SizedBox()
+              //     : const SizedBox(),
             ],
           ),
         );

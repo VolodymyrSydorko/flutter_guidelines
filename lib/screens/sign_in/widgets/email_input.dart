@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_guidelines/generated/index.dart';
 import 'package:flutter_guidelines/screens/sign_in/models/index.dart';
 import 'package:formz/formz.dart';
 
@@ -39,9 +38,7 @@ class EmailInput extends StatelessWidget {
                   bottom: 5,
                 ),
               ),
-              SizedBox(
-                height: 40,
-                child: TextFormField(
+              TextFormField(
                   style: const TextStyle(fontSize: 16, height: 1.0),
                   textInputAction: TextInputAction.next,
                   cursorHeight: 16.0,
@@ -52,7 +49,6 @@ class EmailInput extends StatelessWidget {
                     contentPadding: const EdgeInsets.only(left: 10),
                     labelText: text,
                     border: const OutlineInputBorder(),
-                    fillColor: Colors.blue,
                     errorText: state.email.invalid
                         ? state.email.error == EmailValidationError.invalid
                             ? 'Please enter a valid email'
@@ -72,7 +68,19 @@ class EmailInput extends StatelessWidget {
                     FocusScope.of(context).requestFocus(passwordFocusNode);
                   },
                 ),
-              ),
+              // state.email.invalid
+              //     ? state.email.error == EmailValidationError.invalid
+              //         ? Container(
+              //             alignment: Alignment.topLeft,padding: const EdgeInsets.only(top:5),
+              //             child: const Text('Please enter a valid email',style: TextStyle(color:Colors.red),),
+              //           )
+              //         : state.email.error == EmailValidationError.empty
+              //             ? Container(
+              //                 alignment: Alignment.topLeft,padding: const EdgeInsets.only(top:5),
+              //                 child: const Text('Email is required',style: TextStyle(color:Colors.red),),
+              //               )
+              //             : const SizedBox()
+              //     : const SizedBox(),
             ],
           ),
         );
