@@ -1,6 +1,0 @@
-{
-    "login" : { "buttonText": "Логін" },
-    "resetPassword" : "Відновити пароль",
-    "email" : "Eлектронна пошта",
-    "password" : "Пароль"
-}

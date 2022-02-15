@@ -14,6 +14,7 @@ dependencies:
 
   #injection
   get_it: ^7.2.0
+  injectable: ^1.5.3
 
   #code generator for unions/pattern-matching/copy.
   freezed_annotation: ^1.1.0
@@ -42,6 +43,9 @@ dependencies:
   #easy and fast internationalization
   easy_localization: ^3.0.0
 
+  #bottom navigation bar, but with a few key promises
+  salomon_bottom_bar: ^3.2.0
+
   #
   page_transition: ^2.0.5
   cupertino_icons: ^1.0.4
@@ -49,7 +53,8 @@ dependencies:
   url_launcher: ^6.0.20
 
 dev_dependencies:
-  build_runner: ^2.1.7  
+  build_runner: ^2.1.7 
+  injectable_generator: ^1.5.3
   flutter_gen_runner: ^4.1.5
   auto_route_generator: ^3.2.1
   freezed: ^1.1.1
@@ -86,7 +91,7 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/translations/
+    - resources/langs/
   fonts:
     - family: Raleway
       fonts:

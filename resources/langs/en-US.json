@@ -1,0 +1,40 @@
+{
+    "hello": "Hello",
+    "helloMessage": "Hello {}!",
+    "infoMessageNamed": "{} are written in the {lang} language",
+    "clickMe": "Click me",
+    "login": {
+        "buttonLabel" : "Login",
+        "email" : "Email",
+        "password" : "Password",
+        "resetPassword": {
+            "buttonLabel": "Reset Password",
+            "email": "@:login.email",
+            "password": "@:login.password"
+        }
+    },
+    "clicked": {
+        "zero": "You clicked {} times!",
+        "one": "You clicked {} time!",
+        "two": "You clicked {} times!",
+        "few": "You clicked {} times!",
+        "many": "You clicked {} times!",
+        "other": "You clicked {} times!"
+    },
+    "amount": {
+        "zero": "Your amount : {} ",
+        "one": "Your amount : {} ",
+        "two": "Your amount : {} ",
+        "few": "Your amount : {} ",
+        "many": "Your amount : {} ",
+        "other": "Your amount : {} "
+    },
+    "gender": {
+        "male": "Hi man ;) ",
+        "female": "Hello girl :)",
+        "withArg": {
+            "male": "Hi man ;) {}",
+            "female": "Hello girl :) {}"
+        }
+    }
+}

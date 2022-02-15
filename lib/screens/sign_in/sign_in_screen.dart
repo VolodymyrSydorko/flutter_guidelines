@@ -4,13 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_guidelines/generated/index.dart';
 import 'package:flutter_guidelines/screens/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter_guidelines/screens/sign_in/bloc/sign_in_bloc.dart';
-import 'package:flutter_guidelines/screens/sign_in/widgets/text_url_launcher.dart';
-import 'package:flutter_guidelines/services/http/repositories/index.dart';
-import 'package:flutter_guidelines/services/index.dart';
+import 'package:flutter_guidelines/services/injector/injector.dart';
 import 'package:flutter_guidelines/widgets/index.dart';
 import 'package:formz/formz.dart';
 
 import 'widgets/index.dart';
+import 'widgets/text_url_launcher.dart';
 
 class SignInScreen extends StatefulWidget implements AutoRouteWrapper {
   const SignInScreen({Key? key}) : super(key: key);
@@ -18,8 +17,7 @@ class SignInScreen extends StatefulWidget implements AutoRouteWrapper {
   @override
   Widget wrappedRoute(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          SignInBloc(userRepository: getIt.get<UserRepository>()),
+      create: (context) => getIt<SignInBloc>(),
       child: this,
     );
   }
@@ -118,17 +116,16 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Image.network(
                             'https://applotusunstablebackend.azurewebsites.net/img/logo.bfad0c66.png',
                             scale: 2.4,
-                          ),
-                        ),
+                          ),),
                         Column(
                           children: [
                             EmailInput(
                                 emailFocusNode: _emailFocusNode,
-                                text: LocaleKeys.email.tr(),
+                                text: LocaleKeys.loginEmail.tr(),
                                 passwordFocusNode: _passwordFocusNode),
                             PasswordInput(
                               passwordFocusNode: _passwordFocusNode,
-                              text: LocaleKeys.password.tr(),
+                              text: LocaleKeys.loginPassword.tr(),
                             ),
                             Container(
                               margin: const EdgeInsets.only(
@@ -144,7 +141,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 alignment: Alignment.topRight,
                                 padding: const EdgeInsets.only(right: 10),
                                 child: Text(
-                                  LocaleKeys.resetPassword.tr(),
+                                  LocaleKeys.loginResetPassword.tr(),
                                   style: const TextStyle(color: Colors.blue),
                                 ),
                               ),

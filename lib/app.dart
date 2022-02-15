@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_guidelines/router/index.dart';
-import 'package:flutter_guidelines/services/index.dart';
 import 'package:flutter_guidelines/state_wrapper.dart';
 
 class App extends StatelessWidget {
@@ -9,7 +8,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _appRouter = getIt.get<AppRouter>();
+    final _appRouter = AppRouter();
 
     return StateWrapper(
       child: MaterialApp.router(

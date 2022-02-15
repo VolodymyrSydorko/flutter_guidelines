@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_guidelines/models/general_models.dart';
+import 'package:injectable/injectable.dart';
 
 import 'interceptors/index.dart';
 
+@injectable
 class HttpClient {
   late Dio _dio;
 

@@ -18,7 +18,7 @@ class AuthenticationScreen extends StatelessWidget {
           case AuthStatus.initial:
             return [const SignInRoute()];
           case AuthStatus.authenticated:
-            return [const HomeRoute()];
+            return [const HomeRouter()];
           case AuthStatus.unauthenticated:
             return [const SignInRoute()];
         }

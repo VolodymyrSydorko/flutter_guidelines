@@ -23,8 +23,33 @@ import 'package:flutter_guidelines/screens/index.dart';
         ),
         AutoRoute(
           path: 'home',
-          page: HomeScreen,
-        )
+          name: 'HomeRouter',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(
+              path: '',
+              page: HomeScreen,
+              children: [
+                AutoRoute(
+                  path: 'dashboard',
+                  page: DashboardScreen,
+                ),
+                AutoRoute(
+                  path: 'tasks',
+                  page: TasksScreen,
+                ),
+                AutoRoute(
+                  path: 'config',
+                  page: ConfigScreen,
+                ),
+                AutoRoute(
+                  path: 'profile',
+                  page: ProfileScreen,
+                ),
+              ],
+            ),
+          ],
+        ),
       ],
     ),
     RedirectRoute(

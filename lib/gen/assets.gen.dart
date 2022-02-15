@@ -7,6 +7,12 @@
 
 import 'package:flutter/widgets.dart';
 
+class $ResourcesGen {
+  const $ResourcesGen();
+
+  $ResourcesLangsGen get langs => const $ResourcesLangsGen();
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -18,24 +24,24 @@ class $AssetsImagesGen {
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 }
 
-class $AssetsTranslationsGen {
-  const $AssetsTranslationsGen();
+class $ResourcesLangsGen {
+  const $ResourcesLangsGen();
 
-  /// File path: assets/translations/de-DE.json
-  String get deDE => 'assets/translations/de-DE.json';
+  /// File path: resources/langs/de-DE.json
+  String get deDE => 'resources/langs/de-DE.json';
 
-  /// File path: assets/translations/en-US.json
-  String get enUS => 'assets/translations/en-US.json';
+  /// File path: resources/langs/en-US.json
+  String get enUS => 'resources/langs/en-US.json';
 
-  /// File path: assets/translations/uk-UA.json
-  String get ukUA => 'assets/translations/uk-UA.json';
+  /// File path: resources/langs/uk-UA.json
+  String get ukUA => 'resources/langs/uk-UA.json';
 }
 
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
-  static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
+  static const $ResourcesGen resources = $ResourcesGen();
 }
 
 class AssetGenImage extends AssetImage {
